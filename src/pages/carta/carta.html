@@ -1,0 +1,44 @@
+
+<ion-header>
+  <ion-navbar color="danger" >
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title class="titulo" align="center" >
+      <ion-input type="text" [(ngModel)]="carta.title"></ion-input>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-style" >  
+  <ion-list>
+    <ion-card class="espacio" *ngFor="let plato of platos">
+      <ion-item >        
+        <ion-thumbnail item-start>
+          <img src= "{{plato.imagen}}" >
+        </ion-thumbnail>                   
+          <p>{{plato.titulo}}</p>
+          <h5>$ {{plato.precio}}</h5>  
+           <p align="right">
+
+          <button ion-button color="danger" align="right"  (click)="Recomendados(plato.id,carta.id)">
+              <ion-icon name="star"></ion-icon>             
+          </button>
+                        
+          <button *ngIf= "plato.estado==1" ion-button color="danger" align="right" (click)="Mostrar(plato.id)" (click)="Sumar(plato.id)">
+            <ion-icon name="add"></ion-icon>             
+          </button>
+          <button *ngIf= "plato.estado==0" ion-button color="dark" (click)="Mostrar(plato.id)" (click)="Restar(plato.id)">
+            <ion-icon name="close"></ion-icon>   
+          </button>
+          </p>                     
+      </ion-item>        
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+<ion-footer>      
+      <ion-toolbar color="danger">
+          <ion-input  type="text" [(ngModel)]="compra" ></ion-input>
+      </ion-toolbar>      
+</ion-footer>

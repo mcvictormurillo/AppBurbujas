@@ -1,18 +1,22 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
+  <ion-navbar color="danger">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title class="titulo" align="center">
+      HOME
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <button ion-item *ngFor="let note of notes" (click)="goToDetail(note.id)">
-      {{ note.title }}
-    </button>   
-  </ion-list>
-  <div padding>
-    <button ion-button block (click)="createNote()" >Crear Nota</button>
-  </div>
-</ion-content>
+
+<ion-content class="card-background-page bg-style">
+  
+    <ion-card *ngFor="let carta of cartas">
+      <img  src="{{carta.imagen}}"  (click)="goToCarta(carta.id)">
+      <div class="card-title">{{ carta.title }}</div>
+      <div class="card-subtitle">41 Listings</div>
+    </ion-card>
+   
+ 
+  </ion-content>

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="danger" class="tituloPlato">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title align="center" >
+    Recomendados
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-style" >
+<ion-list>
+  <ion-card>        
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="/assets/icon/user.png">
+          </ion-avatar>
+          <h2>{{plato.titulo}}</h2>            
+        </ion-item>  
+        <img src="/assets/icon/parrilla1.jpg">            
+        <ion-item>
+          <ion-label floating>Comentario</ion-label>
+          <ion-textarea [(ngModel)]="plato.description" ></ion-textarea>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <button *ngIf= "plato.estado==0" ion-button icon-left clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>7 Likes</div>
+            </button>
+            <button *ngIf= "plato.estado==1" ion-button icon-left  small (click)="AddRecomendacion()">
+                <ion-icon name="send"></ion-icon>
+                <div>Guardar</div>
+            </button>
+
+          </ion-col>
+          <ion-col>
+            <button *ngIf= "plato.estado==0" ion-button icon-left clear small color="titulo">
+              <ion-icon name="text"></ion-icon>
+              <div text-color ="danger">4 Comments</div>
+            </button>
+          </ion-col>            
+        </ion-row> 
+      </ion-card>
+
+       
+          
+    </ion-list>
+    <ion-fab right bottom>
+      <button ion-fab color="danger"><ion-icon name="add"  floating></ion-icon></button>
+    </ion-fab>
+
+</ion-content>

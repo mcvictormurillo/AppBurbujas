@@ -6,13 +6,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { NotesService} from '../services/note.services';
-import { DetailPage } from '../pages/detail/detail';
+
+import { CartaPage } from '../pages/carta/carta';
+import { AcercaPage } from '../pages/acerca/acerca';
+import { RecomendadosPage } from '../pages/recomendados/recomendados';
+import { CartaService } from '../services/carta.service';
+
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAiYnlBy7hdaPGe_pOGUPejTklpEgf-y7w",
@@ -23,11 +27,14 @@ export const firebaseConfig = {
   messagingSenderId: "610908934332"
 
 }
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    DetailPage
+    HomePage,    
+    CartaPage,
+    AcercaPage,
+    RecomendadosPage
   ],
   imports: [
     BrowserModule,
@@ -35,19 +42,21 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
-    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    DetailPage
+    CartaPage,
+    AcercaPage,
+    RecomendadosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NotesService
+    CartaService,
+    
   ]
 })
 export class AppModule {}
