@@ -11,6 +11,8 @@ import { CartaPage } from '../pages/carta/carta';
 import { AcercaPage } from '../pages/acerca/acerca';
 import { RecomendadosPage } from '../pages/recomendados/recomendados';
 import { CartaService } from '../services/carta.service';
+import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
+import { DetallesPage} from '../pages/detalles/detalles';
 
 
 
@@ -30,11 +32,13 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
+    PublicacionesPage,
     MyApp,
     HomePage,    
     CartaPage,
     AcercaPage,
-    RecomendadosPage
+    RecomendadosPage,
+    DetallesPage
   ],
   imports: [
     BrowserModule,
@@ -45,17 +49,19 @@ export const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    PublicacionesPage,
     MyApp,
     HomePage,
     CartaPage,
     AcercaPage,
-    RecomendadosPage
+    RecomendadosPage,
+    DetallesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CartaService,
+    CartaService
     
   ]
 })

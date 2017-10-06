@@ -21,32 +21,30 @@ export class CartaService{
       {id: 1, titulo: 'titulo1',imagen: '/assets/icon/parrilla.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
       {id: 2, titulo: 'titulo2',imagen: '/assets/icon/parrilla.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
       {id: 3, titulo: 'titulo3',imagen: '/assets/icon/parrilla.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null}, 
-      {id: 4, titulo: 'titulo4',imagen: '/assets/icon/parrilla.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},
-      
-     
+      {id: 4, titulo: 'titulo4',imagen: '/assets/icon/parrilla.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},    
       ];
 
     platosBisteck=[
-        {id: 1, titulo: 'titulo1', imagen: '/assets/icon/bisteck2.jpg', precio: 1000, estado: 1},
-        {id: 2, titulo: 'titulo2', imagen: '/assets/icon/bisteck2.jpg', precio: 2000, estado: 1},
-        {id: 3, titulo: 'titulo3', imagen: '/assets/icon/bisteck2.jpg', precio: 3000, estado: 1},
-        {id: 4, titulo: 'titulo4', imagen: '/assets/icon/bisteck2.jpg', precio: 4000, estado: 1},
+        {id: 1, titulo: 'titulo1', imagen: '/assets/icon/bisteck2.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
+        {id: 2, titulo: 'titulo2', imagen: '/assets/icon/bisteck2.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
+        {id: 3, titulo: 'titulo3', imagen: '/assets/icon/bisteck2.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null},
+        {id: 4, titulo: 'titulo4', imagen: '/assets/icon/bisteck2.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},
         ];
     platosPasta=[
-        {id: 1, titulo: 'titulo1', imagen: '/assets/icon/pasta.jpg', precio: 1000, estado: 1},
-        {id: 2, titulo: 'titulo2', imagen: '/assets/icon/pasta.jpg', precio: 2000, estado: 1},
-        {id: 3, titulo: 'titulo3', imagen: '/assets/icon/pasta.jpg', precio: 3000, estado: 1},
-        {id: 4, titulo: 'titulo4', imagen: '/assets/icon/pasta.jpg', precio: 4000, estado: 1},
-       
+        {id: 1, titulo: 'titulo1', imagen: '/assets/icon/pasta.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
+        {id: 2, titulo: 'titulo2', imagen: '/assets/icon/pasta.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
+        {id: 3, titulo: 'titulo3', imagen: '/assets/icon/pasta.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null},
+        {id: 4, titulo: 'titulo4', imagen: '/assets/icon/pasta.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},       
         ];
     platosPescado=[
-        {id: 1, titulo: 'titulo1', imagen: '/assets/icon/mariscos.jpg', precio: 1000, estado: 1},
-        {id: 2, titulo: 'titulo2', imagen: '/assets/icon/mariscos.jpg', precio: 2000, estado: 1},
-        {id: 3, titulo: 'titulo3', imagen: '/assets/icon/mariscos.jpg', precio: 3000, estado: 1},
-        {id: 4, titulo: 'titulo4', imagen: '/assets/icon/mariscos.jpg', precio: 4000, estado: 1},
+        {id: 1, titulo: 'titulo1', imagen: '/assets/icon/mariscos.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
+        {id: 2, titulo: 'titulo2', imagen: '/assets/icon/mariscos.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
+        {id: 3, titulo: 'titulo3', imagen: '/assets/icon/mariscos.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null},
+        {id: 4, titulo: 'titulo4', imagen: '/assets/icon/mariscos.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},
         ];
-      public getCartas(){
-        return this.cartas;       
+
+        public getCartas(){
+          return this.cartas;       
         }
         public getPlatosParrilas(){
           return this.platosParrila;       
@@ -61,36 +59,31 @@ export class CartaService{
           return this.platosPescado;       
         }
 
-     public getCarta(id){
-      //elemento, index
-     return this.cartas.filter(function(e,i){ return e.id==id })[0] || {id: null, title: null, description: null, imagen: null};
+     public getCarta(id){      
+      return this.cartas.filter(function(e,i){ return e.id==id })[0] || {id: null, title: null, description: null, imagen: null};
      }
 
-     public getPlatoParrilla(id){
-      //elemento, index
-     return this.platosParrila.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
+     public getPlatoParrilla(id){    
+      return this.platosParrila.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
      }
 
-     public getPlatoBisteck(id){
-      //elemento, index
-     return this.platosBisteck.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null};
+     public getPlatoBisteck(id){      
+      return this.platosBisteck.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
      }
 
-     public getPlatoPasta(id){
-      //elemento, index
-     return this.platosPasta.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null};
+     public getPlatoPasta(id){    
+      return this.platosPasta.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
      }
      public getPlatoPescado(id){
-      //elemento, index
-     return this.platosPescado.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null};
+      return this.platosPescado.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
      }
     
      public enviarRecomendacion(n){
-       this.afDB.database.ref('notas/'+n).set(n);
+      this.afDB.database.ref('notas/'+n).set(n);
      }
      
      public createRecomendacion(plato){
-      //this.notes.push(note);
+    
       this.afDB.database.ref('notas/'+ plato.idBD).set(plato);
   }
 

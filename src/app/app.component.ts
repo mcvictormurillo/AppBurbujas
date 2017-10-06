@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { AcercaPage } from '../pages/acerca/acerca';
 import { RecomendadosPage } from '../pages/recomendados/recomendados';
+import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,6 +30,7 @@ export class MyApp {
         { titulo: 'Inicio', component: HomePage, icon:'home'},
         { titulo: 'Recomendaciones', component: RecomendadosPage, icon:'star-outline'},
         { titulo: 'Acerca', component: AcercaPage, icon:'information-circle'},
+        { titulo: 'Publicaciones', component: PublicacionesPage, icon:'information-circle'},
         
         
       ];

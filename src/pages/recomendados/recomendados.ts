@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartaService } from '../../services/carta.service';
+import { PublicacionesPage } from '../publicaciones/publicaciones';
 
 
 @IonicPage()
@@ -22,11 +23,11 @@ export class RecomendadosPage {
     switch(this.idCarta){
       case 1: this.plato = cartaService.getPlatoParrilla(this.idPlato);
       break;
-      case 2: //this.plato = cartaService.getPlatoBisteck(this.idPlato);
+      case 2: this.plato = cartaService.getPlatoBisteck(this.idPlato);
       break;
-      case 3: //this.plato = cartaService.getPlatoPasta(this.idPlato);
+      case 3: this.plato = cartaService.getPlatoPasta(this.idPlato);
       break;
-      case 4: //this.plato = cartaService.getPlatoPescado(this.idPlato);
+      case 4: this.plato = cartaService.getPlatoPescado(this.idPlato);
       break;
     }
    
@@ -34,7 +35,9 @@ export class RecomendadosPage {
   }
   AddRecomendacion(){
     this.plato.idBD = Date.now();
+   
     this.cartaService.createRecomendacion(this.plato);
+    this.navCtrl.push(PublicacionesPage);
     
   }
 
