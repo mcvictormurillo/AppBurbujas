@@ -6,10 +6,13 @@ export class CartaService{
     constructor(public afDB: AngularFireDatabase){}
     publicaciones=[];
     notes=[];
+    plstos=[];
+
 
     public getPublicaciones(){
        // return this.notes;
         return this.afDB.list('notas/');
+       
     }
     cartas =[
         {id: 1, title: 'Parrilla ', description: 'description 1', imagen: '/assets/icon/parrilla.jpg'},
