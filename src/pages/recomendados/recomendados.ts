@@ -20,6 +20,7 @@ export class RecomendadosPage {
     public cartaService: CartaService) {
     this.idPlato = navParams.get('idP');
     this.idCarta = navParams.get('idC');
+    this.idCarta = navParams.get('idImg');
     switch(this.idCarta){
       case 1: this.plato = cartaService.getPlatoParrilla(this.idPlato);
       break;

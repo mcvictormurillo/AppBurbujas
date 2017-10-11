@@ -88,7 +88,7 @@ export class CartaPage {
     this.mas = false;*/
   }
 
-  Recomendados(idPlato, idCarta){
-    this.navCtrl.push(RecomendadosPage,{idP:idPlato, idC: idCarta });
+  Recomendados(idPlato, idCarta, idImagen){
+    this.navCtrl.push(RecomendadosPage,{idP:idPlato, idC: idCarta, idImg: idImagen});
   }
 }

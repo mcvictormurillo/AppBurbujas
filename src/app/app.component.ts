@@ -12,7 +12,7 @@ import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild('NAV') nav: Nav;
+ @ViewChild('NAV') nav: Nav;
   public rootPage:any;
   public pages: Array<{
     titulo: string,
@@ -30,9 +30,7 @@ export class MyApp {
         { titulo: 'Inicio', component: HomePage, icon:'home'},
         { titulo: 'Recomendaciones', component: RecomendadosPage, icon:'star-outline'},
         { titulo: 'Acerca', component: AcercaPage, icon:'information-circle'},
-        { titulo: 'Publicaciones', component: PublicacionesPage, icon:'information-circle'},
-        
-        
+        { titulo: 'Publicaciones', component: PublicacionesPage, icon:'information-circle'},       
       ];
       platform.ready().then(() => {
        statusBar.styleDefault();
@@ -41,6 +39,7 @@ export class MyApp {
   }
   goToPage(page){
     this.nav.setRoot(page);
+   
   }
 
 }

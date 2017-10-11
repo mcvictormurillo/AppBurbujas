@@ -1,14 +1,30 @@
-
+@font-face {
+    font-family: freeScript;
+    src: url('../assets/fonts/freescript.TTF');
+}
 .titulo{
     color: map-get($colors, titulo);
     text-align: center;
-    //opacity: 0.5;
-    font-family: Arial;
-   
-
+    font-family: freeScript;
+    src: url('../assets/fonts/freescript.TTF');
+    font-size: 1.8em; 
+}
+.tlist{
+     margin-top: 1em;
+}
+.tamaño{
+    margin-top: 5em;
+    img{        
+        max-width: 63%;
+        display:block;
+        margin:auto;       
+    }
 }
 .bg-style {
-    background-color: #F8F6F4;   
+    background-color: #F8F6F4; 
+    font-family: freeScript;
+    src: url('../assets/fonts/freescript.TTF');
+    font-size: 1.8em;  
 }
 .bg-style2 {
     background-color: black;    
@@ -24,13 +40,11 @@
 .cCarta{
     color: warning;
 }
-
-
 .tituloPlato{
     color: white;
-    //text-align: center;
-    font-family: Arial;
-    font-size: 2.0em;
+    font-family: freeScript;
+    src: url('../assets/fonts/freescript.TTF');
+    font-size: 4.0em;
     font-weight: bold;  
 }
 
@@ -40,10 +54,8 @@
 
 .user {
     img{
-        //margin: 0 auto;
         display: block;
         max-width: 100%;
-        
         //box-shadow: 0 1px 2px rgba(black, 3);
         border-radius: 0%
      }
@@ -52,41 +64,35 @@
          text-align: center;
          margin: 10px 0 20px;
      }
-    &.playlist img {
-        //border-radius: 5px;
-}    
 }
 
-.card-background-page {
-    
+.card-background-page {    
       ion-card {
         position: relative;
         text-align: center;
-      }
-    
+      }    
       .card-title {
         position: absolute;
         top: 36%;
-        font-size: 2.0em;
+        font-size: 3.5em;
         width: 100%;
         font-weight: bold;
         color: #fff;
-      }
-    
+        font-family: freeScript;
+        src: url('../assets/fonts/freescript.TTF');
+      }    
       .card-subtitle {
         font-size: 1.0em;
         position: absolute;
         top: 52%;
         width: 100%;
         color: #fff;
-        
-      }
-    
+        font-family: freeScript;
+        src: url('../assets/fonts/freescript.TTF');        
+      }    
     }
-
 .espacio{
     line-height: 2px;
-
     img{
         border-radius: 4px
     }
@@ -98,7 +104,6 @@
         color: red;
     }
 }
-
 .posicion{
     position: right;
 }

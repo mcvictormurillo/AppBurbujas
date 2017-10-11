@@ -16,9 +16,11 @@
           <ion-avatar item-start>
             <img src="/assets/icon/user.png">
           </ion-avatar>
-          <h2>{{plato.titulo}}</h2>            
+          <h2>{{plato.titulo}}</h2>       
+          <h2>{{plato.precio}}</h2>      
         </ion-item>  
-        <img src="/assets/icon/parrilla1.jpg">            
+       <!-- <img src="/assets/icon/parrilla1.jpg">   -->
+       <img src="{{plato.imagen}}">         
         <ion-item>
           <ion-label floating>Comentario</ion-label>
           <ion-textarea [(ngModel)]="plato.descripcion" ></ion-textarea>

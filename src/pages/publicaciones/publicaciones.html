@@ -9,8 +9,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="bg-style" >
-  <ion-list>
+<ion-content class="style"  >
+  <!--<ion-list>
     <ion-card *ngFor="let plato of platos2">        
           <ion-item>
             
@@ -30,5 +30,60 @@
         </ion-card>
 
   </ion-list> 
+
+  <ion-list>
+     
+          
+    <ion-item *ngFor="let plato of platos2">
+        <div class="tImg">
+            <img src="{{plato.imagen}}"/> 
+          </div>     
+           
+          <div padding>
+              <ion-avatar>
+              <img src="/assets/icon/user.png">
+            </ion-avatar>
+            <h2>{{plato.titulo}}</h2>  
+            {{plato.descripcion}}             
+        </div>   
+    </ion-item>
+        
+
+  </ion-list> 
+
+-->
+
+
+<ion-card *ngFor="let plato of platos2">
+  
+  <img src="{{plato.imagen}}">
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="/assets/icon/user.png">
+    </ion-avatar>
+    <h2>Marty McFly</h2>
+    <p>November 5, 1955</p>
+  </ion-item>
+
+  <ion-card-content>
+    <p>{{plato.descripcion}}</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-col>    
+  </ion-row>
+
+</ion-card>
 </ion-content>
   

@@ -1,16 +1,16 @@
-<ion-menu [content] = "NAV">
-    <ion-content >
-        <img src="/assets/icon/1.jpg" alt="">
-        <ion-list>
-         <ion-list-header>
-           ¿A dónde quieres ir?
-          </ion-list-header>
-            <button ion-item *ngFor ="let page of pages" (click)="goToPage(page.component)" menuClose>
+<ion-menu [content] = "NAV" >
+    <ion-content>  
+        <div class="tamaño" >
+            <ion-avatar item-start>
+                <img  src="/assets/icon/naruto2.png">
+            </ion-avatar>
+        </div>         
+        <ion-list >        
+            <button class="bg-style" ion-item *ngFor ="let page of pages" (click)="goToPage(page.component)" menuClose>
                 <ion-icon item-left name="{{ page.icon }}"></ion-icon>
                 {{ page.titulo}}
-            </button>      
+            </button>
         
-
         </ion-list>
     </ion-content>
 </ion-menu>

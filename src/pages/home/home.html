@@ -1,22 +1,19 @@
 <ion-header>
   <ion-navbar color="danger">
-      <button ion-button menuToggle>
+      <button ion-button menuToggle icon-only>
         <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title class="titulo" align="center">
-      HOME
-    </ion-title>
+      <ion-title class="titulo" center text-center>
+        HOME
+      </ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content class="card-background-page bg-style">
-  
+<ion-content class="card-background-page bg-style">  
     <ion-card *ngFor="let carta of cartas">
       <img  src="{{carta.imagen}}"  (click)="goToCarta(carta.id)">
       <div class="card-title">{{ carta.title }}</div>
       <div class="card-subtitle">41 Listings</div>
     </ion-card>
-   
- 
-  </ion-content>
+</ion-content>
