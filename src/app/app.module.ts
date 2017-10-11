@@ -6,14 +6,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
 import { CartaPage } from '../pages/carta/carta';
 import { AcercaPage } from '../pages/acerca/acerca';
 import { RecomendadosPage } from '../pages/recomendados/recomendados';
 import { CartaService } from '../services/carta.service';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
 import { DetallesPage} from '../pages/detalles/detalles';
-
 
 
 import { AngularFireModule } from 'angularfire2';

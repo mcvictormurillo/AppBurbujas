@@ -13,6 +13,7 @@ export class RecomendadosPage {
  platos = [];
  idPlato = null;
  idCarta = null;
+ idImg = null;
  plato = {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
   constructor(
     public navCtrl: NavController, 
@@ -20,7 +21,7 @@ export class RecomendadosPage {
     public cartaService: CartaService) {
     this.idPlato = navParams.get('idP');
     this.idCarta = navParams.get('idC');
-    this.idCarta = navParams.get('idImg');
+    this.idImg = navParams.get('idImg');
     switch(this.idCarta){
       case 1: this.plato = cartaService.getPlatoParrilla(this.idPlato);
       break;
@@ -36,7 +37,7 @@ export class RecomendadosPage {
   }
   AddRecomendacion(){
     this.plato.idBD = Date.now();
-   
+    this.plato.imagen = this.idImg;
     this.cartaService.createRecomendacion(this.plato);
     this.navCtrl.push(PublicacionesPage);
     
