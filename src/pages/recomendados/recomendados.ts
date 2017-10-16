@@ -22,6 +22,9 @@ export class RecomendadosPage {
  calificacion3: boolean=false;
  calificacion4: boolean=false;
  calificacion5: boolean=false;
+ n: boolean;
+ m: boolean;
+ sumaStar: number=0;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -36,24 +39,31 @@ export class RecomendadosPage {
     this.navCtrl.setRoot(PublicacionesPage);
     
   }
-
-  Calificacion(index:number){
-    switch(index){
-      case 1: this.calificacion1=true; this.calificacion2=false; this.calificacion3=false; this.calificacion4=false; this.calificacion5=false;              
-      break;
-      case 2: this.calificacion1=true; this.calificacion2=true; this.calificacion3=false; this.calificacion4=false; this.calificacion5=false;
-      break;
-      case 3: this.calificacion1=true; this.calificacion2=true; this.calificacion3=true; this.calificacion4=false; this.calificacion5=false;
-      break;
-      case 4: this.calificacion1=true; this.calificacion2=true; this.calificacion3=true; this.calificacion4=true; this.calificacion5=false;
-      break;
-      case 5: this.calificacion1=true; this.calificacion2=true; this.calificacion3=true; this.calificacion4=true; this.calificacion5=true;
-      break;
-      default:
-      break;
-    }
-   
+/*
+ 
+  Calificacion1(){    
+    if(this.calificacion1==false){
+      this.calificacion1=true;
+      this.calificacion2=false;      
+      this.sumaStar = this.sumaStar +1;
+    }else{
+      this.calificacion1=true;
+      this.sumaStar = this.sumaStar -1;
+    } 
+    
   }
+
+  Calificacion2(){    
+    if(this.calificacion2==false){
+      this.calificacion2=true;
+      this.calificacion2=false;      
+      this.sumaStar = this.sumaStar +1;
+    }else{
+      this.calificacion2=true;
+      this.sumaStar = this.sumaStar -1;
+    } 
+    
+  }*/
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecomendadosPage');

@@ -73,26 +73,7 @@ export class CartaService{
         public getPlatosPescados(){
           return this.platosPescado;       
         }
-     /*
-     public getCarta(id){      
-      return this.cartas.filter(function(e,i){ return e.id==id })[0] || {id: null, title: null, description: null, imagen: null};
-     }
-
-     public getPlatoParrilla(id){    
-      return this.platosParrila.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
-     }
-
-     public getPlatoBisteck(id){      
-      return this.platosBisteck.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
-     }
-
-     public getPlatoPasta(id){    
-      return this.platosPasta.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
-     }
-     public getPlatoPescado(id){
-      return this.platosPescado.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
-     }
-    */
+   
      public enviarRecomendacion(n){
       this.afDB.database.ref('notas/'+n).set(n);
      }
@@ -102,5 +83,10 @@ export class CartaService{
       this.afDB.database.ref('notas/'+ plato.idBD).set(plato);
   }
 
+  public createSuma(suma){
+    this.afDB.database.ref('suma/');
+  }
+
  
 }
+

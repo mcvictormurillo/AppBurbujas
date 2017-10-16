@@ -12,8 +12,9 @@
 
 <ion-content class="card-background-page bg-style">  
     <ion-card *ngFor="let carta of cartas">
-      <img  src="{{carta.imagen}}"  (click)="goToCarta(carta)">
+      <img  src="{{carta.imagen}}" (click)="goToCarta(carta)">
       <div class="card-title">{{ carta.title }}</div>
       <!--<div class="card-subtitle">41 Listings</div>-->
     </ion-card>
+    
 </ion-content>

@@ -15,10 +15,11 @@ import { DetallesPage} from '../pages/detalles/detalles';
 import { MenuPage } from '../pages/menu/menu';
 
 
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
+import { IonicStorageModule } from '@ionic/storage';
 export const firebaseConfig = {
   apiKey: "AIzaSyAiYnlBy7hdaPGe_pOGUPejTklpEgf-y7w",
   authDomain: "notas-7e663.firebaseapp.com",
@@ -44,6 +45,7 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
+    IonicStorageModule.forRoot(),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
@@ -63,6 +65,7 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CartaService
+
     
   ]
 })
