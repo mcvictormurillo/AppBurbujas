@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database/database';
+
 @Injectable()
 
 export class CartaService{
@@ -7,19 +8,28 @@ export class CartaService{
     publicaciones=[];
     notes=[];
     plstos=[];
+    compra: number;
 
+    public setCompra(n: number){
+      this.compra = n;
+    }
+
+    public getCompra(){
+      return this.compra;
+    }
 
     public getPublicaciones(){
-       // return this.notes;
-        return this.afDB.list('notas/');
+      return this.afDB.list('notas/');
        
     }
+    //---------Home Mostramos los platos Generales-----------
     cartas =[
-        {id: 1, title: 'Parrilla ', description: 'description 1', imagen: '/assets/icon/parrilla.jpg'},
-        {id: 2, title: 'Bisteck ', description: 'description 2', imagen: '/assets/icon/bisteck2.jpg'},
-        {id: 3, title: 'Pasta ', description: 'description 3', imagen: '/assets/icon/pasta.jpg'},
-        {id: 4, title: 'Percados Y Mariscos', description: 'description 3', imagen: '/assets/icon/mariscos.jpg'},
+        {id: 1, title: 'Parrilla ', imagen: '/assets/icon/parrilla.jpg'},
+        {id: 2, title: 'Bisteck ', imagen: '/assets/icon/bisteck2.jpg'},
+        {id: 3, title: 'Pasta ', imagen: '/assets/icon/pasta.jpg'},
+        {id: 4, title: 'Percados Y Mariscos', imagen: '/assets/icon/mariscos.jpg'},
       ];
+
     platosParrila=[
       {id: 1, titulo: 'titulo1',imagen: '/assets/icon/parrilla.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
       {id: 2, titulo: 'titulo2',imagen: '/assets/icon/parrilla.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
@@ -46,6 +56,8 @@ export class CartaService{
         {id: 4, titulo: 'titulo4', imagen: '/assets/icon/mariscos.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},
         ];
 
+        //----------Metodos para Retornar Los diferentes Platos--------
+
         public getCartas(){
           return this.cartas;       
         }
@@ -61,7 +73,7 @@ export class CartaService{
         public getPlatosPescados(){
           return this.platosPescado;       
         }
-
+     /*
      public getCarta(id){      
       return this.cartas.filter(function(e,i){ return e.id==id })[0] || {id: null, title: null, description: null, imagen: null};
      }
@@ -80,7 +92,7 @@ export class CartaService{
      public getPlatoPescado(id){
       return this.platosPescado.filter(function(e,i){ return e.id==id })[0] || {id: null, titulo: null, imagen: null, precio: null, estado:null, descripcion: null, idBD: null};
      }
-    
+    */
      public enviarRecomendacion(n){
       this.afDB.database.ref('notas/'+n).set(n);
      }

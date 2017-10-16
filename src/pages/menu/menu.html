@@ -1,0 +1,27 @@
+
+  <ion-menu [content]="content" >
+    <div class="tamaño" >
+        <ion-avatar item-start>
+            <img  src="/assets/icon/naruto2.png">
+        </ion-avatar>
+    </div>    
+    <ion-list no-lines>      
+      <!--<button  class="bg-style2" menuClose ion-item *ngFor="let m of pages" (click)="setContent(m.id)"> 
+        <ion-icon [name]="m.icon" margin-right></ion-icon>{{m.label}} 
+      </button>-->
+      <button ion-item menuClose (click)="goHome()"> 
+        <ion-icon name="add" margin-right></ion-icon>HOME
+      </button>
+      <button  ion-item menuClose (click)="goPubli()"> 
+        <ion-icon name="person" margin-right></ion-icon>PUBLICACIONES
+      </button>
+      <button ion-item menuClose (click)="goAcerca()"> 
+        <ion-icon name="add" margin-right></ion-icon>ACERCA
+      </button>
+      
+      
+      <button ion-item> <ion-icon name="md-exit" margin-right></ion-icon>Cerrar Sesion</button>
+    </ion-list>    
+  </ion-menu>
+  <ion-nav [root]="root" main #content></ion-nav>
+    

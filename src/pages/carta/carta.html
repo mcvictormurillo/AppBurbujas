@@ -1,11 +1,14 @@
 
+
 <ion-header>
   <ion-navbar color="danger" >
-      <button ion-button menuToggle icon-only>
-        <ion-icon name="menu"></ion-icon>
-      </button>
+      
     <ion-title class="titulo" center text-center >
-      <ion-input type="text" [(ngModel)]="carta.title"></ion-input>
+      <!--
+        <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button><ion-label type="text" [(ngModel)]="carta.title"></ion-label>-->
+      {{carta.title}} 
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -21,7 +24,7 @@
           <h5>$ {{plato.precio}}</h5>  
            <p align="right">
 
-          <button ion-button color="danger" align="right"  (click)="Recomendados(plato.id,carta.id)">
+          <button ion-button color="danger" align="right"  (click)="Recomendados(plato,carta.title)">
               <ion-icon name="star"></ion-icon>             
           </button>
                         

@@ -25,14 +25,7 @@ export class PublicacionesPage {
       }
 
     });
-
-
-  //  for(let i=0; i<this.platos.length; i++){
-  //      this.aux = this.platos.length - 1 -i;
-  //     this.platos2[this.aux] = this.platos[i];
-        //this.aux = this.aux - 1;
-  //    }
-    
+   
   }
 
   ionViewDidLoad() {

@@ -16,41 +16,46 @@
           <ion-avatar item-start>
             <img src="/assets/icon/user.png">
           </ion-avatar>
-          <h2>{{plato.titulo}}</h2>       
-          <h2>{{plato.precio}}</h2>      
+          <h2>{{plato.titulo}}</h2>                 
         </ion-item>  
-       <!-- <img src="/assets/icon/parrilla1.jpg">   -->
-       <img src="{{plato.imagen}}">         
+        <img src="{{plato.imagen}}">         
         <ion-item>
           <ion-label floating>Comentario</ion-label>
           <ion-textarea [(ngModel)]="plato.descripcion" ></ion-textarea>
-        </ion-item>
-        <ion-row>
-          <ion-col>
-            <button *ngIf= "plato.estado==0" ion-button icon-left clear small>
-              <ion-icon name="thumbs-up"></ion-icon>
-              <div>7 Likes</div>
+        </ion-item>    
+        <ion-item>
+          <button *ngIf= "calificacion1==false" color="danger" ion-button clear (click)="Calificacion(1)">
+          <ion-icon name="star" icon-left></ion-icon>
+          </button>
+          <button *ngIf= "calificacion2==false" color="danger" ion-button clear (click)="Calificacion(2)">
+            <ion-icon name="star" icon-left></ion-icon>
             </button>
-            <button *ngIf= "plato.estado==1" ion-button icon-left  small (click)="AddRecomendacion()">
-                <ion-icon name="send"></ion-icon>
-                <div>Guardar</div>
-            </button>
+          <button *ngIf= "calificacion3==false" color="danger" ion-button clear (click)="Calificacion(3)">
+            <ion-icon name="star" icon-left></ion-icon>
+          </button>
+          
 
-          </ion-col>
-          <ion-col>
-            <button *ngIf= "plato.estado==0" ion-button icon-left clear small color="titulo">
-              <ion-icon name="text"></ion-icon>
-              <div text-color ="danger">4 Comments</div>
-            </button>
-          </ion-col>            
-        </ion-row> 
-      </ion-card>
-
-       
+          <!-- AHORA LAS MARCADAS -->
+          <button *ngIf= "calificacion1==true" color="yellow" ion-button clear (click)="Calificacion()">
+            <ion-icon name="star" icon-left></ion-icon>
+          </button>
+          <button *ngIf= "calificacion2==true" color="yellow" ion-button clear (click)="Calificacion()">
+            <ion-icon name="star" icon-left></ion-icon>
+          </button>
+          <button *ngIf= "calificacion3==true" color="yellow" ion-button clear (click)="Calificacion()">
+            <ion-icon name="star" icon-left></ion-icon>
+          </button>
+                    
+        </ion-item>     
+          <button *ngIf= "plato.estado==1" color="danger"ion-button block (click)="AddRecomendacion()">
+            <ion-icon name="send" icon-left></ion-icon>
+            <div>Guardar</div>
+        </button>       
+      </ion-card>       
           
     </ion-list>
-    <ion-fab right bottom>
+    <!--<ion-fab right bottom>
       <button ion-fab color="danger"><ion-icon name="add"  floating></ion-icon></button>
-    </ion-fab>
+    </ion-fab>-->
 
 </ion-content>

@@ -12,6 +12,7 @@ import { RecomendadosPage } from '../pages/recomendados/recomendados';
 import { CartaService } from '../services/carta.service';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
 import { DetallesPage} from '../pages/detalles/detalles';
+import { MenuPage } from '../pages/menu/menu';
 
 
 import { AngularFireModule } from 'angularfire2';
@@ -36,7 +37,8 @@ export const firebaseConfig = {
     CartaPage,
     AcercaPage,
     RecomendadosPage,
-    DetallesPage
+    DetallesPage,
+    MenuPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ export const firebaseConfig = {
     CartaPage,
     AcercaPage,
     RecomendadosPage,
-    DetallesPage
+    DetallesPage,
+    MenuPage
   ],
   providers: [
     StatusBar,
