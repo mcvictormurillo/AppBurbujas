@@ -1,15 +1,8 @@
-
-
 <ion-header>
-  <ion-navbar color="danger" >
-      
-    <ion-title class="titulo" center text-center >
-      <!--
-        <button ion-button menuToggle icon-only>
-        <ion-icon name="menu"></ion-icon>
-      </button><ion-label type="text" [(ngModel)]="carta.title"></ion-label>-->
-      {{carta.title}} 
-    </ion-title>
+  <ion-navbar color="danger">      
+      <ion-title class="titulo" center text-center>
+        {{carta.title}}
+      </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -28,7 +21,7 @@
               <ion-icon name="star"></ion-icon>             
           </button>
                         
-          <button *ngIf= "plato.estado==1" ion-button color="danger" align="right" (click)="Mostrar(plato.id)" (click)="Sumar(plato.id)">
+          <button *ngIf= "plato.estado==1" ion-button color="danger" align="right" (click)="Mostrar(plato.id)" (click)="Sumar(plato.id,plato.titulo)">
             <ion-icon name="add"></ion-icon>             
           </button>
           <button *ngIf= "plato.estado==0" ion-button color="dark" (click)="Mostrar(plato.id)" (click)="Restar(plato.id)">
@@ -41,8 +34,8 @@
 
 </ion-content>
 
-<ion-footer>      
-      <ion-toolbar color="danger">
-          <ion-input  type="text" [(ngModel)]="compra" ></ion-input>
+<ion-footer class="titulo" >      
+      <ion-toolbar color="danger" padding>
+          <ion-input  type="text" right text-right [(ngModel)]="compra" ></ion-input>
       </ion-toolbar>      
 </ion-footer>

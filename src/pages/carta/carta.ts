@@ -5,6 +5,7 @@ import { CartaService } from '../../services/carta.service';
 import { CartaInterface } from '../../models/carta/carta.interface';
 import { PlatoInterface } from '../../models/plato/plato.interface';
 import { SumaInterface } from '../../models/suma/suma.interface';
+import { SumaItemInterface} from '../../models/suma/SumaItemInterface';
 import { FirebaseListObservable} from 'angularfire2/Database';
 import { AngularFireDatabase} from 'angularfire2/database/database';
 import { FirebaseObjectObservable} from 'angularfire2/Database';
@@ -19,9 +20,12 @@ import { Storage} from '@ionic/storage';
 
 export class CartaPage {
   sumaItem = {} as SumaInterface;
-  sumaItemRef$ = {} as FirebaseListObservable<SumaInterface[]>;  
-  sumaItemObjRef$: FirebaseObjectObservable<SumaInterface>;
-
+  //sumaItemRef$ = {} as FirebaseListObservable<SumaInterface[]>;  
+  //sumaItemObjRef$: FirebaseObjectObservable<SumaInterface>;
+  //nuevo
+  sumaItemInterface = {} as SumaItemInterface;
+  listSumaInterface : Array<SumaItemInterface>;
+  
   carta = {} as CartaInterface;
   platos: Array<PlatoInterface>;
   public menuID: number;
@@ -35,8 +39,8 @@ export class CartaPage {
     public cartaService: CartaService,
     public database: AngularFireDatabase,
     private storage: Storage) {
-    this.sumaItemRef$ = this.database.list('suma');
-    this.sumaItemObjRef$ = this.database.object(`suma/${this.compra}`);
+    //this.sumaItemRef$ = this.database.list('suma');
+    //this.sumaItemObjRef$ = this.database.object(`suma/${this.compra}`);
     this.carta = navParams.get(`cartaIterface`);    
     switch(Number(this.carta.id)){
       case 1: this.platos = cartaService.getPlatosParrilas();
@@ -58,13 +62,18 @@ export class CartaPage {
   }
 
   //------- Operacion de suma y resta de platos
-  Sumar(idN){
+  Sumar(idN,nomTitulo){
     for(let i=0; i< this.platos.length; i++){
       if(this.platos[i].id == idN){
         this.compra = this.compra + this.platos[i].precio;
       }
     } 
     this.storage.set('compra', this.compra);
+    //agregar el plato a la lista
+    this.sumaItemInterface.nombrePlato=nomTitulo;
+    
+    this.storage.set('listCompra', this.listSumaInterface.push(this.sumaItemInterface));
+    
   }
 
   Restar(idN){

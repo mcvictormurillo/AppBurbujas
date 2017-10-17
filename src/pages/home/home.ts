@@ -12,7 +12,7 @@ import { Storage} from '@ionic/storage';
   templateUrl: 'home.html'
 })
 export class HomePage {
-    @ViewChild('myNav') nav: NavController; 
+   // @ViewChild('myNav') nav: NavController; 
     cartas: Array<CartaInterface>;
     suma: number;
     
@@ -27,7 +27,7 @@ export class HomePage {
 
     public goToCarta(cartaInterface: CartaInterface){
       
-      this.navCtrl.push(CartaPage,{cartaIterface: cartaInterface});
+      this.navCtrl.push(CartaPage,{cartaIterface: cartaInterface});        
             
     }
 
