@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AcercaPage } from '../acerca/acerca';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
-import { CartaPage } from '../carta/carta';
+//import { CartaPage } from '../carta/carta';
 import { HomePage } from '../home/home';
 @Component({
   selector: 'page-menu',

@@ -1,13 +1,13 @@
-import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuPage } from '../pages/menu/menu';
-import { HomePage } from '../pages/home/home';
+/*
 import { AcercaPage } from '../pages/acerca/acerca';
 import { RecomendadosPage } from '../pages/recomendados/recomendados';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
-
+*/
 @Component({
   templateUrl: 'app.html'
 })
@@ -23,4 +23,6 @@ export class MyApp {
     });
   }
 }
+
+
 

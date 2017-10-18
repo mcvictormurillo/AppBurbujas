@@ -6,10 +6,9 @@ import { CartaInterface } from '../../models/carta/carta.interface';
 import { PlatoInterface } from '../../models/plato/plato.interface';
 import { SumaInterface } from '../../models/suma/suma.interface';
 import { SumaItemInterface} from '../../models/suma/SumaItemInterface';
-import { FirebaseListObservable} from 'angularfire2/Database';
 import { AngularFireDatabase} from 'angularfire2/database/database';
-import { FirebaseObjectObservable} from 'angularfire2/Database';
 import { Storage} from '@ionic/storage';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -20,18 +19,18 @@ import { Storage} from '@ionic/storage';
 
 export class CartaPage {
   sumaItem = {} as SumaInterface;
-  //sumaItemRef$ = {} as FirebaseListObservable<SumaInterface[]>;  
-  //sumaItemObjRef$: FirebaseObjectObservable<SumaInterface>;
-  //nuevo
+ 
   sumaItemInterface = {} as SumaItemInterface;
   listSumaInterface : Array<SumaItemInterface>;
   
   carta = {} as CartaInterface;
   platos: Array<PlatoInterface>;
+
   public menuID: number;
   public compra: number = 0;
   public mas: Boolean=true;
   public bandera: any;
+  plato = {} as PlatoInterface; 
 
   constructor(   
     public navCtrl: NavController, 
@@ -39,8 +38,8 @@ export class CartaPage {
     public cartaService: CartaService,
     public database: AngularFireDatabase,
     private storage: Storage) {
-    //this.sumaItemRef$ = this.database.list('suma');
-    //this.sumaItemObjRef$ = this.database.object(`suma/${this.compra}`);
+      
+   
     this.carta = navParams.get(`cartaIterface`);    
     switch(Number(this.carta.id)){
       case 1: this.platos = cartaService.getPlatosParrilas();
@@ -56,6 +55,10 @@ export class CartaPage {
     }  
     this.getData();    
   }
+
+  goToHome(plato: PlatoInterface){
+    this.navCtrl.setRoot(HomePage, {plato: plato});
+  }
   
   goToDetalles(){
     this.navCtrl.setRoot(RecomendadosPage);
@@ -68,12 +71,8 @@ export class CartaPage {
         this.compra = this.compra + this.platos[i].precio;
       }
     } 
-    this.storage.set('compra', this.compra);
-    //agregar el plato a la lista
-    this.sumaItemInterface.nombrePlato=nomTitulo;
-    
-    this.storage.set('listCompra', this.listSumaInterface.push(this.sumaItemInterface));
-    
+    this.storage.set('Compra', this.compra);
+      
   }
 
   Restar(idN){
@@ -82,7 +81,7 @@ export class CartaPage {
         this.compra = this.compra - this.platos[i].precio;
       }
     }
-    this.storage.set('compra',this.compra );
+    this.storage.set('Compra',this.compra );
   }
 
   //------Metodo para mostrar o cultar la compra de un plato
@@ -105,7 +104,7 @@ export class CartaPage {
 
   
   getData(){
-    this.storage.get('compra').then((val) => {
+    this.storage.get('Compra').then((val) => {
       if(val==null){
         console.log('no hay compra', val);
         

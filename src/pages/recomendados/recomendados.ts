@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartaService } from '../../services/carta.service';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
-import { CartaInterface } from '../../models/carta/carta.interface';
+//import { CartaInterface } from '../../models/carta/carta.interface';
 import { PlatoInterface } from '../../models/plato/plato.interface';
 
 @IonicPage()
