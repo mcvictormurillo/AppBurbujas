@@ -22,6 +22,7 @@ export class CartaPage {
  
   sumaItemInterface = {} as SumaItemInterface;
   listSumaInterface : Array<SumaItemInterface>;
+  lista: SumaItemInterface[]=[];
   
   carta = {} as CartaInterface;
   platos: Array<PlatoInterface>;
@@ -66,9 +67,7 @@ export class CartaPage {
         this.navCtrl.setRoot(HomePage, {plato: plato});
         console.log('seleccionaste platos GRACIAS');
       }
-    });
-    
-      
+    });     
      
   }
   
@@ -84,6 +83,10 @@ export class CartaPage {
       }
     } 
     this.storage.set('Compra', this.compra);
+    this.sumaItemInterface = nomTitulo;
+    this.lista.push(this.sumaItemInterface);
+    console.log(this.lista);
+    
       
   }
 
@@ -128,4 +131,31 @@ export class CartaPage {
       
     });
   }
+//----------------------------
+showRadio() {
+  let alert = this.alertCtrl.create();
+  alert.setTitle('Lightsaber color');
+
+  alert.addInput({
+    type: 'radio',
+    label: 'Blue',
+    value: 'blue',
+    checked: true
+  });
+
+  alert.addButton('Cancel');
+  alert.addButton({
+    text: 'OK',
+    handler: data => {
+      this.testRadioOpen = false;
+      this.testRadioResult = data;
+    }
+  });
+  alert.present();
+}
+
+
+
+//
+
 }
