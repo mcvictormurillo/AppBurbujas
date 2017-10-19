@@ -17,30 +17,35 @@ export class HomePage {
    // @ViewChild('myNav') nav: NavController; 
     cartas: Array<CartaInterface>;
     suma: number;
-    plato: PlatoInterface;
+    plato = {} as PlatoInterface;
+    
     cadena:string;
+    bandera: boolean;
+
     constructor(
     public navCtrl: NavController,
     public cartaService: CartaService,
     public alertCtrl: AlertController,
     private storage: Storage,
-    public navParams: NavParams) {
-
+    public navParams: NavParams) {    
     this.cartas = cartaService.getCartas();  
     this.getData();      
-    this.storage.get('idCliente').then((val) => {
-      console.log('el cliente es', val)});
-    this.showPrompt();
-    this.plato = navParams.get(`plato`);
-    //this.cadena = this.plato.titulo;
-    //console.log(this.cadena);
-      
+   // this.storage.get('idCliente').then((val) => {
+    //console.log('el cliente es', val)});
+    if(this.navParams.get('plato')==null){
+      console.log('el obejto plato es nulo');
+
+    }else{
+      this.plato = this.navParams.get('plato');  
+      console.log('el objeto plato es true');
+    }
+       
   }
 
-    public goToCarta(cartaInterface: CartaInterface){
-      
-      this.navCtrl.setRoot(CartaPage,{cartaIterface: cartaInterface});        
-            
+
+
+    public goToCarta(cartaInterface: CartaInterface){      
+      this.navCtrl.setRoot(CartaPage,{cartaIterface: cartaInterface});                
     }
 
     
@@ -51,14 +56,21 @@ export class HomePage {
           console.log('no hay compra', val);
           
         }else{
-          console.log('hay compra',val);
-          
-        }
-        
+          console.log('hay compra',val);          
+        }        
       });
     }
 
-    showPrompt() {
+   
+   
+  }
+
+
+
+
+/*
+
+ showPrompt() {
       let prompt = this.alertCtrl.create({
         title: 'Bienvenido!',
         
@@ -89,9 +101,4 @@ export class HomePage {
       });
       prompt.present();
     }
-   
-  }
-
-
-
-
+*/

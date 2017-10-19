@@ -40,7 +40,8 @@ export class CartaPage {
     private storage: Storage) {
       
    
-    this.carta = navParams.get(`cartaIterface`);    
+    this.carta = navParams.get(`cartaIterface`); 
+    console.log('estes en un objeto de home a carta',this.carta.title);   
     switch(Number(this.carta.id)){
       case 1: this.platos = cartaService.getPlatosParrilas();
       break;
@@ -57,7 +58,18 @@ export class CartaPage {
   }
 
   goToHome(plato: PlatoInterface){
-    this.navCtrl.setRoot(HomePage, {plato: plato});
+    this.storage.get('Compra').then((val) => {
+      if(val==5000){
+        this.navCtrl.setRoot(HomePage);
+        console.log('no seleccionastes plato')
+      }else{
+        this.navCtrl.setRoot(HomePage, {plato: plato});
+        console.log('seleccionaste platos GRACIAS');
+      }
+    });
+    
+      
+     
   }
   
   goToDetalles(){
