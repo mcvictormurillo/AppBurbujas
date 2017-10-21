@@ -4,6 +4,14 @@
     font-family: freeScript;
     src: url('../assets/fonts/freescript.TTF');
 }
+
+.alertCss{
+    color: red;
+    font-family: freeScript;
+    src: url('../assets/fonts/freescript.TTF');
+    font-size: 2.2em;
+    
+}
 .titulo{
     color: map-get($colors, titulo);
     text-align: center;
@@ -16,6 +24,11 @@
         font-family: freeScript;
         src: url('../assets/fonts/freescript.TTF');
         font-size: 2.2em;
+    }
+    p {
+        font-family: freeScript;
+        src: url('../assets/fonts/freescript.TTF');
+        font-size: 1.8em;
     }
 
 

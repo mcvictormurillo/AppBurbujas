@@ -25,7 +25,7 @@
           </button>
                         
           <button *ngIf= "plato.estado==1" ion-button color="danger" align="right" (click)="Mostrar(plato.id)" (click)="Sumar(plato.id,plato.titulo)">
-            <ion-icon name="add"></ion-icon>             
+            <ion-icon name="cart"></ion-icon>             
           </button>
           <button *ngIf= "plato.estado==0" ion-button color="dark" (click)="Mostrar(plato.id)" (click)="Restar(plato.id)">
             <ion-icon name="close"></ion-icon>   
@@ -37,8 +37,21 @@
 
 </ion-content>
 
-<ion-footer class="titulo" >      
+<ion-footer class="titulo">      
       <ion-toolbar color="danger" padding>
-          <ion-input  type="text" right text-right [(ngModel)]="compra" ></ion-input>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3>
+                <button ion-button button-left clear (click)="showCheckbox()">
+                    <ion-icon icon-left name="list-box" color="light"></ion-icon>             
+                </button>
+            </ion-col>
+            <ion-col col-5>              
+            </ion-col>
+            <ion-col col-4>
+               <ion-input  type="text" right text-right [(ngModel)]="compra" ></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>          
       </ion-toolbar>      
 </ion-footer>

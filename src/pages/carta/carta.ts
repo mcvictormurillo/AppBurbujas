@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RecomendadosPage } from '../recomendados/recomendados';
 import { CartaService } from '../../services/carta.service';
 import { CartaInterface } from '../../models/carta/carta.interface';
@@ -38,7 +38,8 @@ export class CartaPage {
     public navParams: NavParams,
     public cartaService: CartaService,
     public database: AngularFireDatabase,
-    private storage: Storage) {
+    private storage: Storage,
+    private alertCtrl: AlertController) {
       
    
     this.carta = navParams.get(`cartaIterface`); 
@@ -83,11 +84,11 @@ export class CartaPage {
       }
     } 
     this.storage.set('Compra', this.compra);
-    this.sumaItemInterface = nomTitulo;
+    this.sumaItemInterface.nombrePlato = nomTitulo;
+    this.sumaItemInterface.id= idN;
     this.lista.push(this.sumaItemInterface);
-    console.log(this.lista);
-    
-      
+    console.log(this.lista[0].nombrePlato);
+          
   }
 
   Restar(idN){
@@ -132,23 +133,29 @@ export class CartaPage {
     });
   }
 //----------------------------
-showRadio() {
+
+showCheckbox() {
   let alert = this.alertCtrl.create();
-  alert.setTitle('Lightsaber color');
-
+  alert.setCssClass('alertCss');
+  alert.setTitle('Lista de Platos'+ ' ' + '$'+ '' + String(this.compra));
+  for(let i=0; i<this.lista.length; i++){
+    console.log(this.lista[i].nombrePlato);
   alert.addInput({
-    type: 'radio',
-    label: 'Blue',
-    value: 'blue',
-    checked: true
+    type: 'checkbox',
+    label: this.lista[i].nombrePlato,
+    value: 'id',
+    checked: true,
+    
   });
-
+}
+  //if()
+  //alert._setFooter(String(this.compra));
   alert.addButton('Cancel');
   alert.addButton({
     text: 'OK',
     handler: data => {
-      this.testRadioOpen = false;
-      this.testRadioResult = data;
+      //this.testRadioOpen = false;
+      //this.testRadioResult = data;
     }
   });
   alert.present();
