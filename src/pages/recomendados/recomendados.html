@@ -38,8 +38,9 @@
               <ion-icon name="star" icon-left></ion-icon>
             </button>                 
         </div> 
+        <button *ngIf= "plato.estado == 1" color="danger" ion-button button-left block (click)="AddRecomendacion(this.lista,this.carta)">
       -->
-          <button *ngIf= "plato.estado == 1" color="danger" ion-button button-left block (click)="AddRecomendacion(this.lista,this.carta)">
+          <button color="danger" ion-button button-left block (click)="AddRecomendacion(this.lista,this.carta)">
             <ion-icon icon-left name="send" ></ion-icon>
             <div>Guardar</div>
         </button>       
