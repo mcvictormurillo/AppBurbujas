@@ -74,18 +74,25 @@ export class CartaService{
           return this.platosPescado;       
         }
    
-     public enviarRecomendacion(n){
-      this.afDB.database.ref('notas/'+n).set(n);
-     }
-     
-     public createRecomendacion(plato){
-    
-      this.afDB.database.ref('notas/'+ plato.idBD).set(plato);
+  public enviarRecomendacion(n){
+  this.afDB.database.ref('notas/'+n).set(n);
+  }
+  
+  public createRecomendacion(plato){
+
+  this.afDB.database.ref('notas/'+ plato.idBD).set(plato);
   }
 
   public createSuma(suma){
     this.afDB.database.ref('suma/');
   }
+
+  public enviarPedido(idPedido:String[]){
+    this.afDB.database.ref('pedidos/'+ idPedido[idPedido.length-1]).set(idPedido);
+    //this.afDB.database.ref('pedidos/'+ idPedido[idPedido.length-1]).set(idPedido);
+
+  }
+
 
  
 }

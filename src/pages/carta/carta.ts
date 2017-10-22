@@ -169,26 +169,61 @@ showCheckbox() {
   let alert = this.alertCtrl.create();
   alert.setCssClass('alertCss');
   alert.setTitle('Lista de Platos'+ ' ' + '$'+ '' + String(this.compra));
+    
   for(let i=0; i<this.lista.length; i++){
     console.log(this.lista[i]);
-  alert.addInput({
+    alert.addInput({
     type: 'checkbox',
     label: String(this.lista[i]),
     value: 'id',
-    checked: true,
-    
+    checked: true,    
   });
-}
-  
+} 
+
+    
   alert.addButton('Cancel');
   alert.addButton({
     text: 'OK',
     handler: data => {
+      this.lista.push(String(this.compra));
+      //this.lista.push(String(data.idCliente));
+      this.cartaService.enviarPedido(this.lista);
       //this.testRadioOpen = false;
       //this.testRadioResult = data;
     }
   });
   alert.present();
+}
+
+//-------------------------------------------
+
+showPrompt() {
+  let prompt = this.alertCtrl.create({
+    title: 'Confirmar Pedido',
+    message: "Ingresa tu N° Identificación",
+    inputs: [
+      {
+        name: 'title',
+        placeholder: 'C.C'
+      },
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Save',
+        handler: data => {
+          console.log('Saved clicked',data.title);
+          
+        }
+      }
+    ]
+  });
+  prompt.present();
 }
 
 
