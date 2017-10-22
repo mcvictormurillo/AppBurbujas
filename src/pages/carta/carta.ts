@@ -22,28 +22,37 @@ export class CartaPage {
  
   sumaItemInterface = {} as SumaItemInterface;
   listSumaInterface : Array<SumaItemInterface>;
-  lista: SumaItemInterface[]=[];
-  
+  //lista: SumaItemInterface[]=[];
+  lista: String[]=[];  
   carta = {} as CartaInterface;
   platos: Array<PlatoInterface>;
-
   public menuID: number;
   public compra: number = 0;
   public mas: Boolean=true;
   public bandera: any;
   plato = {} as PlatoInterface; 
-
   constructor(   
     public navCtrl: NavController, 
     public navParams: NavParams,
     public cartaService: CartaService,
     public database: AngularFireDatabase,
     private storage: Storage,
-    private alertCtrl: AlertController) {
-      
+    private alertCtrl: AlertController) {      
    
-    this.carta = navParams.get(`cartaIterface`); 
-    console.log('estes en un objeto de home a carta',this.carta.title);   
+    
+
+    if(navParams.get(`myListaReturn`)==null){
+      this.lista = navParams.get(`myLista`);//home
+      this.carta = navParams.get(`cartaIterface`); 
+      console.log('LA LISTA LA TENIA HOME');
+    }else{
+      this.lista = navParams.get(`myListaReturn`);
+      this.carta = navParams.get(`myCartaReturn`);
+      console.log('LA LISTA LA TENIA RECOMENDADOS');
+    }
+    
+    console.log('lista recibida de home', this.lista);
+    //console.log('estes en un objeto de home a carta',this.carta.title);   
     switch(Number(this.carta.id)){
       case 1: this.platos = cartaService.getPlatosParrilas();
       break;
@@ -58,20 +67,32 @@ export class CartaPage {
     }  
     this.getData();    
   }
-
+/*
   goToHome(plato: PlatoInterface){
     this.storage.get('Compra').then((val) => {
-      if(val==5000){
+      if(val==0){
         this.navCtrl.setRoot(HomePage);
         console.log('no seleccionastes plato')
       }else{
         this.navCtrl.setRoot(HomePage, {plato: plato});
         console.log('seleccionaste platos GRACIAS');
       }
-    });     
-     
+    });         
   }
-  
+  */
+  goToHome(lista: String[]){
+    
+    this.storage.get('Compra').then((val) => {
+      if(val==0){
+        this.navCtrl.setRoot(HomePage);
+        console.log('no seleccionastes plato')
+      }else{
+        this.navCtrl.setRoot(HomePage, {myLista: lista});
+        console.log('seleccionaste platos GRACIAS');
+      }
+    });         
+  }
+
   goToDetalles(){
     this.navCtrl.setRoot(RecomendadosPage);
   }
@@ -84,20 +105,23 @@ export class CartaPage {
       }
     } 
     this.storage.set('Compra', this.compra);
-    this.sumaItemInterface.nombrePlato = nomTitulo;
-    this.sumaItemInterface.id= idN;
-    this.lista.push(this.sumaItemInterface);
-    console.log(this.lista[0].nombrePlato);
-          
+    this.lista.push(nomTitulo);
+    console.log(this.lista);
   }
 
-  Restar(idN){
+  Restar(idN,nomTitulo){
     for(let i=0; i< this.platos.length; i++){
       if(this.platos[i].id == idN){
         this.compra = this.compra - this.platos[i].precio;
       }
     }
     this.storage.set('Compra',this.compra );
+
+    for(let i=0; i< this.lista.length; i++){
+      if(this.lista[i]==nomTitulo){
+        this.lista.splice(i,1);
+      }
+    }
   }
 
   //------Metodo para mostrar o cultar la compra de un plato
@@ -114,10 +138,17 @@ export class CartaPage {
  
   }
 
-  Recomendados(platoIterface: PlatoInterface, cartaTitle: string){
-    this.navCtrl.setRoot(RecomendadosPage,{platoInterface: platoIterface, cartaTitle: cartaTitle});
+  Recomendados(platoIterface: PlatoInterface, cartaTitle: string, lista: String[], carta:CartaInterface){         
+    this.storage.get('Compra').then((val) => {
+      if(val==0){
+        this.navCtrl.setRoot(RecomendadosPage,{platoInterface: platoIterface, cartaTitle: cartaTitle, myLista: lista, myCarta: carta}); 
+        console.log('enviando a recomendaciones vacia')
+      }else{
+        this.navCtrl.setRoot(RecomendadosPage,{platoInterface: platoIterface, cartaTitle: cartaTitle, myLista: lista, myCarta: carta}); 
+        console.log('enviando a recomendaciones true');
+      }
+    });         
   }
-
   
   getData(){
     this.storage.get('Compra').then((val) => {
@@ -139,17 +170,16 @@ showCheckbox() {
   alert.setCssClass('alertCss');
   alert.setTitle('Lista de Platos'+ ' ' + '$'+ '' + String(this.compra));
   for(let i=0; i<this.lista.length; i++){
-    console.log(this.lista[i].nombrePlato);
+    console.log(this.lista[i]);
   alert.addInput({
     type: 'checkbox',
-    label: this.lista[i].nombrePlato,
+    label: String(this.lista[i]),
     value: 'id',
     checked: true,
     
   });
 }
-  //if()
-  //alert._setFooter(String(this.compra));
+  
   alert.addButton('Cancel');
   alert.addButton({
     text: 'OK',
@@ -161,8 +191,5 @@ showCheckbox() {
   alert.present();
 }
 
-
-
-//
 
 }

@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar color="danger" class="tituloPlato">
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    <ion-title align="center" >
-    Recomendados
-    </ion-title>
+  <ion-navbar color="danger">          
+      <ion-title class="titulo" left text-left >
+          <button ion-button button-left clear (click)=" goToCarta(this.lista,this.carta)">
+             <ion-icon icon-left name="arrow-round-back" color="light" ></ion-icon>
+          </button> 
+          Recomendaciones
+      </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,7 +14,7 @@
   <ion-card>        
         <ion-item>
           <ion-avatar item-start>
-            <img src="/assets/icon/user.png">
+            <img src="assets/icon/user.png">
           </ion-avatar>
           <h2>{{plato.titulo}}</h2>                 
         </ion-item>  
@@ -22,7 +22,8 @@
         <ion-item>
           <ion-label floating>Comentario</ion-label>
           <ion-textarea [(ngModel)]="plato.descripcion" ></ion-textarea>
-        </ion-item>    
+        </ion-item> 
+        <!--   
         <div>
           <button *ngIf= "calificacion1 == false" color="danger" ion-button clear (click)="Calificacion1()" >
           <ion-icon name="star" icon-left></ion-icon>
@@ -37,8 +38,9 @@
               <ion-icon name="star" icon-left></ion-icon>
             </button>                 
         </div> 
-          <button *ngIf= "plato.estado == 1" color="danger"ion-button block (click)="AddRecomendacion()">
-            <ion-icon name="send" icon-left></ion-icon>
+      -->
+          <button *ngIf= "plato.estado == 1" color="danger" ion-button button-left block (click)="AddRecomendacion(this.lista,this.carta)">
+            <ion-icon icon-left name="send" ></ion-icon>
             <div>Guardar</div>
         </button>       
       </ion-card>       

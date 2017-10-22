@@ -59,9 +59,26 @@
 }
 .bg-style {
     background-color: #F8F6F4; 
-    font-size: 1%;
     font-family: freeScript;
     src: url('../assets/fonts/freescript.TTF');
+    line-height: 2px;
+    img{
+        border-radius: 4px
+    }
+    p{
+        color: #0F0F0F;
+        font-size: 1.7em;
+    }
+    h5{
+        color: red;
+        font-size: 1.4em;
+    }
+    ion-textarea{
+        font-size: 1.7em;
+    }
+    ion-label{
+        font-size: 1.7em;
+    }
     
     
       

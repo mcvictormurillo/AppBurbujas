@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartaService } from '../../services/carta.service';
+import { CartaPage} from '../carta/carta';
+import { Storage} from '@ionic/storage';
+import { CartaInterface } from '../../models/carta/carta.interface';
 
 @IonicPage()
 @Component({
@@ -11,10 +14,13 @@ export class PublicacionesPage {
   platos=[];
   platos2=[];
   aux: number;
+  lista: String[]=[];  
+  carta = {} as CartaInterface;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public cartaService: CartaService
+    public cartaService: CartaService,
+    public storage: Storage
   ) {
       cartaService.getPublicaciones().subscribe(datos=>{
       //this.platos = datos;
@@ -25,8 +31,22 @@ export class PublicacionesPage {
       }
 
     });
+    this.lista = navParams.get(`myLista`);
+    this.carta = navParams.get(`myCarta`); 
    
   }
+  goToCarta(lista: String[], carta:CartaInterface){    
+    
+    this.storage.get('Compra').then((val) => {
+      if(val==0){
+        this.navCtrl.setRoot(CartaPage,{myListaReturn: lista,myCartaReturn: carta});
+        console.log('lista devuelta a publicaciones vacia')
+      }else{
+        this.navCtrl.setRoot(CartaPage,{myListaReturn: lista,myCartaReturn: carta});
+        console.log('lista devuelta a publicaciones true',this.lista);
+      }
+    });      
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PublicacionesPage');

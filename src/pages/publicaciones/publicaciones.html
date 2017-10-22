@@ -1,29 +1,27 @@
 <ion-header>
-  <ion-navbar color="danger" class="tituloPlato">
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    <ion-title align="center" >
-    Publicaciones
-    </ion-title>
+  <ion-navbar color="danger">          
+      <ion-title class="titulo" left text-left >
+          <button ion-button button-left clear (click)=" goToCarta(this.lista,this.carta)">
+             <ion-icon icon-left name="arrow-round-back" color="light" ></ion-icon>
+          </button> 
+          Publicaciones
+      </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="style"  >
+<ion-content class="bg-style"  >
 <ion-card *ngFor="let plato of platos2">  
   <img src="{{plato.imagen}}">
   <ion-item>
     <ion-avatar item-start>
       <img src="assets/icon/user.png">
     </ion-avatar>
-    <h2>Marty McFly</h2>
-    <p>November 5, 1955</p>
+    <h2>Marty McFly</h2>    
   </ion-item>
-
   <ion-card-content>
     <p>{{plato.descripcion}}</p>
   </ion-card-content>
-
+  <!--
   <ion-row>
     <ion-col>
       <button ion-button icon-left clear small>
@@ -38,6 +36,7 @@
       </button>
     </ion-col>    
   </ion-row>
+-->
 
 </ion-card>
 </ion-content>

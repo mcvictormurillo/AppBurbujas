@@ -31,29 +31,29 @@ export class CartaService{
       ];
 
     platosParrila=[
-      {id: 1, titulo: 'titulo1',imagen: 'assets/icon/parrilla.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
-      {id: 2, titulo: 'titulo2',imagen: 'assets/icon/parrilla.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
-      {id: 3, titulo: 'titulo3',imagen: 'assets/icon/parrilla.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null}, 
-      {id: 4, titulo: 'titulo4',imagen: 'assets/icon/parrilla.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},    
+      {id: 1, titulo: 'titulo1 Parrilla',imagen: 'assets/icon/parrilla.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
+      {id: 2, titulo: 'titulo2 Parrilla',imagen: 'assets/icon/parrilla.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
+      {id: 3, titulo: 'titulo3 Parrilla',imagen: 'assets/icon/parrilla.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null}, 
+      {id: 4, titulo: 'titulo4 Parrilla',imagen: 'assets/icon/parrilla.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},    
       ];
 
     platosBisteck=[
-        {id: 1, titulo: 'titulo1', imagen: 'assets/icon/bisteck2.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
-        {id: 2, titulo: 'titulo2', imagen: 'assets/icon/bisteck2.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
-        {id: 3, titulo: 'titulo3', imagen: 'assets/icon/bisteck2.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null},
-        {id: 4, titulo: 'titulo4', imagen: 'assets/icon/bisteck2.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},
+        {id: 1, titulo: 'titulo1 Bisteck', imagen: 'assets/icon/bisteck2.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
+        {id: 2, titulo: 'titulo2 Bisteck', imagen: 'assets/icon/bisteck2.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
+        {id: 3, titulo: 'titulo3 Bisteck', imagen: 'assets/icon/bisteck2.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null},
+        {id: 4, titulo: 'titulo4 Bisteck', imagen: 'assets/icon/bisteck2.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},
         ];
     platosPasta=[
-        {id: 1, titulo: 'titulo1', imagen: 'assets/icon/pasta.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
-        {id: 2, titulo: 'titulo2', imagen: 'assets/icon/pasta.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
-        {id: 3, titulo: 'titulo3', imagen: 'assets/icon/pasta.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null},
-        {id: 4, titulo: 'titulo4', imagen: 'assets/icon/pasta.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},       
+        {id: 1, titulo: 'titulo1 Pasta', imagen: 'assets/icon/pasta.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
+        {id: 2, titulo: 'titulo2 Pasta', imagen: 'assets/icon/pasta.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
+        {id: 3, titulo: 'titulo3 Pasta', imagen: 'assets/icon/pasta.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null},
+        {id: 4, titulo: 'titulo4 Pasta', imagen: 'assets/icon/pasta.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},       
         ];
     platosPescado=[
-        {id: 1, titulo: 'titulo1', imagen: 'assets/icon/mariscos.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
-        {id: 2, titulo: 'titulo2', imagen: 'assets/icon/mariscos.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
-        {id: 3, titulo: 'titulo3', imagen: 'assets/icon/mariscos.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null},
-        {id: 4, titulo: 'titulo4', imagen: 'assets/icon/mariscos.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},
+        {id: 1, titulo: 'titulo1 Pescado', imagen: 'assets/icon/mariscos.jpg', precio: 1000, estado: 1, descripcion: null, idBD: null},
+        {id: 2, titulo: 'titulo2 Pescado', imagen: 'assets/icon/mariscos.jpg', precio: 2000, estado: 1, descripcion: null, idBD: null},
+        {id: 3, titulo: 'titulo3 Pescado', imagen: 'assets/icon/mariscos.jpg', precio: 3000, estado: 1, descripcion: null, idBD: null},
+        {id: 4, titulo: 'titulo4 Pescado', imagen: 'assets/icon/mariscos.jpg', precio: 4000, estado: 1, descripcion: null, idBD: null},
         ];
 
         //----------Metodos para Retornar Los diferentes Platos--------

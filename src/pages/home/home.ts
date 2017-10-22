@@ -18,10 +18,9 @@ export class HomePage {
     cartas: Array<CartaInterface>;
     suma: number;
     plato = {} as PlatoInterface;
-    
+    lista: String[]=[];      
     cadena:string;
     bandera: boolean;
-
     constructor(
     public navCtrl: NavController,
     public cartaService: CartaService,
@@ -32,20 +31,25 @@ export class HomePage {
     this.getData();      
    // this.storage.get('idCliente').then((val) => {
     //console.log('el cliente es', val)});
-    if(this.navParams.get('plato')==null){
-      console.log('el obejto plato es nulo');
-
+    if(this.navParams.get('myLista')==null){
+      console.log('lista plato es nulo');
     }else{
-      this.plato = this.navParams.get('plato');  
-      console.log('el objeto plato es true');
-    }
-       
+      this.lista = this.navParams.get('myLista');  
+      console.log('lista platos es true',this.lista);
+    }       
   }
 
-
-
-    public goToCarta(cartaInterface: CartaInterface){      
-      this.navCtrl.setRoot(CartaPage,{cartaIterface: cartaInterface});                
+    public goToCarta(cartaInterface: CartaInterface, lista: String[]){           
+      this.storage.get('Compra').then((val) => {
+        if(val==0){
+          this.navCtrl.setRoot(CartaPage, {myLista: lista, cartaIterface: cartaInterface });
+          console.log('no envio lista a carta');
+        }else{
+          this.navCtrl.setRoot(CartaPage, {myLista: lista, cartaIterface: cartaInterface });
+          console.log('envio lista a carta');
+        }
+        });         
+                   
     }
 
     
