@@ -21,7 +21,6 @@ export class RecomendadosPage {
  idImg = null;
  plato = {} as PlatoInterface;
  carta = {} as CartaInterface;
-
  n: boolean;
  m: boolean;
  sumaStar: number=0;

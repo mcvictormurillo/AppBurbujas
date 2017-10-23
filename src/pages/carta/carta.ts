@@ -178,6 +178,7 @@ showCheckbox() {
       //this.lista.push(String(data.idCliente));
       this.cartaService.enviarPedido(this.lista);
       this.presentToast();
+      this.storage.set('Compra',0);
       //this.testRadioOpen = false;
       //this.testRadioResult = data;
     }

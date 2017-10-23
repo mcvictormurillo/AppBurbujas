@@ -50,16 +50,17 @@ public pages: Array<{
   
   }
   goHome(){
-    this.root = HomePage;
+    this.root = MenuPage;
+    //this.navCtrl.setRoot(MenuPage);
   }
   goPubli(){
-    this.root = PublicacionesPage
+    this.navCtrl.setRoot(PublicacionesPage);
   }
   goAcerca(){
-    this.root = AcercaPage
+    this.navCtrl.push(AcercaPage);
   }
   goMapa(){
-    this.root = MapaPage
+    this.navCtrl.push(MapaPage);
   }
 
 }
