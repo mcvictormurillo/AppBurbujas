@@ -10,8 +10,10 @@
 </ion-header>
 
 
-<ion-content padding>
-   <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<ion-content >
+   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker>
+    <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
   </agm-map>
+  
 </ion-content>

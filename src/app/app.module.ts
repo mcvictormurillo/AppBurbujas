@@ -15,9 +15,11 @@ import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
 import { DetallesPage} from '../pages/detalles/detalles';
 import { MenuPage } from '../pages/menu/menu';
 
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+//import { CommonModule } from '@angular/common';
+//import { FormsModule } from '@angular/forms';
 
+import { Geolocation } from '@ionic-native/geolocation';
+import { AgmCoreModule } from '@agm/core';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
