@@ -9,11 +9,14 @@ import { HomePage } from '../pages/home/home';
 import { CartaPage } from '../pages/carta/carta';
 import { AcercaPage } from '../pages/acerca/acerca';
 import { RecomendadosPage } from '../pages/recomendados/recomendados';
+import { MapaPage} from '../pages/mapa/mapa';
 import { CartaService } from '../services/carta.service';
 import { PublicacionesPage } from '../pages/publicaciones/publicaciones';
 import { DetallesPage} from '../pages/detalles/detalles';
 import { MenuPage } from '../pages/menu/menu';
 
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 import { AngularFireModule } from 'angularfire2';
@@ -40,7 +43,8 @@ export const firebaseConfig = {
     AcercaPage,
     RecomendadosPage,
     DetallesPage,
-    MenuPage
+    MenuPage,
+    MapaPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,10 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     IonicStorageModule.forRoot(),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAq2VAgfTKtO2hycLaEgi60oEVb--ciVko'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,13 +66,15 @@ export const firebaseConfig = {
     AcercaPage,
     RecomendadosPage,
     DetallesPage,
-    MenuPage
+    MenuPage,
+    MapaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CartaService
+    CartaService,
+    Geolocation
 
     
   ]

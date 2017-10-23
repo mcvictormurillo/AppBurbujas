@@ -4,6 +4,7 @@ import { AcercaPage } from '../acerca/acerca';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
 //import { CartaPage } from '../carta/carta';
 import { HomePage } from '../home/home';
+import { MapaPage} from '../mapa/mapa';
 @Component({
   selector: 'page-menu',
   templateUrl: 'menu.html'
@@ -13,8 +14,9 @@ export class MenuPage {
   root: any = HomePage;
   menuOpc: Menu[] = [
     { label: 'Home', icon: 'home', id: 1 },
-    { label: 'Publicaciones', icon: 'star', id: 3 },
-    { label: 'Acerca', icon: 'md-restaurant', id: 4 },  
+    { label: 'Publicaciones', icon: 'star', id: 2 },
+    { label: 'Acerca', icon: 'md-restaurant', id: 3 }, 
+    { label: 'localización', icon: 'md-restaurant', id: 4 },   
   ];
 
 public pages: Array<{
@@ -27,7 +29,8 @@ public pages: Array<{
     this.pages = [
       { label: 'Home', icon: 'home', id: 1 },
       { label: 'Publicaciones', icon: 'star', id: 2 },
-      { label: 'Acerca', icon: 'md-restaurant', id: 3 },        
+      { label: 'Acerca', icon: 'md-restaurant', id: 3 },     
+      { label: 'localización', icon: 'md-restaurant', id: 4 },     
     ];
   }
   setContent(i) {
@@ -37,6 +40,8 @@ public pages: Array<{
       case 2: this.root = PublicacionesPage;
       break;
       case 3: this.root = AcercaPage;
+      break;
+      case 4: this.root = MapaPage;
       break;
       default:
       break;
@@ -51,6 +56,9 @@ public pages: Array<{
   }
   goAcerca(){
     this.root = AcercaPage
+  }
+  goMapa(){
+    this.root = MapaPage
   }
 
 }
