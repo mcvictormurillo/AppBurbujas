@@ -9,19 +9,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="bg-style" >
+<ion-content class="bg-style">
 <ion-list>
   <ion-card>        
         <ion-item>
           <ion-avatar item-start>
             <img src="assets/icon/user.png">
           </ion-avatar>
-          <h2>{{plato.titulo}}</h2>                 
+          <p>{{plato.titulo}}</p>                 
         </ion-item>  
         <img src="{{plato.imagen}}">         
         <ion-item>
-          <ion-label floating>Comentario</ion-label>
-          <ion-textarea [(ngModel)]="plato.descripcion" ></ion-textarea>
+          <ion-label floating><p>Comentario<p></ion-label>
+            
+              <ion-textarea [(ngModel)]="plato.descripcion" ></ion-textarea>
+            
+          
         </ion-item> 
         <!--   
         <div>
@@ -40,8 +43,8 @@
         </div> 
         <button *ngIf= "plato.estado == 1" color="danger" ion-button button-left block (click)="AddRecomendacion(this.lista,this.carta)">
       -->
-          <button color="danger" ion-button button-left block (click)="AddRecomendacion(this.lista,this.carta)">
-            <ion-icon icon-left name="send" ></ion-icon>
+          <button color="danger" ion-button block (click)="AddRecomendacion(this.lista,this.carta)">
+            <ion-icon ></ion-icon>
             <div>Guardar</div>
         </button>       
       </ion-card>       

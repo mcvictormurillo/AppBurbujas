@@ -9,6 +9,7 @@ import { SumaItemInterface} from '../../models/suma/SumaItemInterface';
 import { AngularFireDatabase} from 'angularfire2/database/database';
 import { Storage} from '@ionic/storage';
 import { HomePage } from '../home/home';
+import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -37,9 +38,8 @@ export class CartaPage {
     public cartaService: CartaService,
     public database: AngularFireDatabase,
     private storage: Storage,
-    private alertCtrl: AlertController) {      
-   
-    
+    private alertCtrl: AlertController,
+    public toastCtrl: ToastController) {  
 
     if(navParams.get(`myListaReturn`)==null){
       this.lista = navParams.get(`myLista`);//home
@@ -67,19 +67,8 @@ export class CartaPage {
     }  
     this.getData();    
   }
-/*
-  goToHome(plato: PlatoInterface){
-    this.storage.get('Compra').then((val) => {
-      if(val==0){
-        this.navCtrl.setRoot(HomePage);
-        console.log('no seleccionastes plato')
-      }else{
-        this.navCtrl.setRoot(HomePage, {plato: plato});
-        console.log('seleccionaste platos GRACIAS');
-      }
-    });         
-  }
-  */
+
+  
   goToHome(lista: String[]){
     
     this.storage.get('Compra').then((val) => {
@@ -188,6 +177,7 @@ showCheckbox() {
       this.lista.push(String(this.compra));
       //this.lista.push(String(data.idCliente));
       this.cartaService.enviarPedido(this.lista);
+      this.presentToast();
       //this.testRadioOpen = false;
       //this.testRadioResult = data;
     }
@@ -218,12 +208,29 @@ showPrompt() {
         text: 'Save',
         handler: data => {
           console.log('Saved clicked',data.title);
+          //this.lista.push(String(data.title));
+          // this.cartaService.enviarPedido(this.lista);
+          //this.presentToast();
           
         }
       }
     ]
   });
   prompt.present();
+}
+
+presentToast() {
+  const toast = this.toastCtrl.create({
+    message: 'Tu pedido ha sido enviado',
+    duration: 2000,
+    position: 'top'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
 }
 
 

@@ -6,6 +6,7 @@ import { CartaInterface } from '../../models/carta/carta.interface';
 import { PlatoInterface } from '../../models/plato/plato.interface';
 import { CartaPage} from '../carta/carta';
 import { Storage} from '@ionic/storage';
+import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -20,11 +21,7 @@ export class RecomendadosPage {
  idImg = null;
  plato = {} as PlatoInterface;
  carta = {} as CartaInterface;
- calificacion1: boolean=false;
- calificacion2: boolean=false;
- calificacion3: boolean=false;
- calificacion4: boolean=false;
- calificacion5: boolean=false;
+
  n: boolean;
  m: boolean;
  sumaStar: number=0;
@@ -33,7 +30,8 @@ export class RecomendadosPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public cartaService: CartaService,
-    public storage: Storage) {
+    public storage: Storage,
+    public toastCtrl: ToastController) {
     this.cartaTitulo = navParams.get('cartaTitle');
     this.plato = navParams.get(`platoInterface`);
     this.lista = navParams.get(`myLista`);
@@ -42,7 +40,8 @@ export class RecomendadosPage {
   }
   AddRecomendacion(lista: String[], carta: CartaInterface){    
     this.plato.idBD = Date.now();    
-    this.cartaService.createRecomendacion(this.plato);    
+    if(this.cartaService.createRecomendacion(this.plato)==true){
+      this.presentToast();  
       this.storage.get('Compra').then((val) => {
         if(val==0){
           this.navCtrl.setRoot(PublicacionesPage,{myLista: lista, myCarta: carta});
@@ -51,7 +50,10 @@ export class RecomendadosPage {
           this.navCtrl.setRoot(PublicacionesPage,{myLista: lista, myCarta: carta});
           console.log('lista enviadoa a publicaciones true',this.lista);
         }
-      });      
+      });  
+
+    }  
+        
   }
 
   goToCarta(lista: String[], carta:CartaInterface){    
@@ -66,34 +68,22 @@ export class RecomendadosPage {
         }
       });      
   }
-/*
- 
-  Calificacion1(){    
-    if(this.calificacion1==false){
-      this.calificacion1=true;
-      this.calificacion2=false;      
-      this.sumaStar = this.sumaStar +1;
-    }else{
-      this.calificacion1=true;
-      this.sumaStar = this.sumaStar -1;
-    } 
-    
-  }
-
-  Calificacion2(){    
-    if(this.calificacion2==false){
-      this.calificacion2=true;
-      this.calificacion2=false;      
-      this.sumaStar = this.sumaStar +1;
-    }else{
-      this.calificacion2=true;
-      this.sumaStar = this.sumaStar -1;
-    } 
-    
-  }*/
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecomendadosPage');
   }
 
+  presentToast() {
+    const toast = this.toastCtrl.create({
+      message: 'El envio fue exitoso',
+      duration: 2000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
 }

@@ -78,9 +78,10 @@ export class CartaService{
   this.afDB.database.ref('notas/'+n).set(n);
   }
   
-  public createRecomendacion(plato){
+  public createRecomendacion(plato):Boolean{
 
   this.afDB.database.ref('notas/'+ plato.idBD).set(plato);
+  return true
   }
 
   public createSuma(suma){
