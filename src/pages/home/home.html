@@ -1,3 +1,9 @@
+
+
+<ion-content >  
+    <button ion-button block (click)="panel()">Panel Principal</button>
+</ion-content>
+<!--
 <ion-header>
   <ion-navbar color="danger">
       <button ion-button menuToggle>
@@ -14,7 +20,18 @@
     <ion-card *ngFor="let carta of cartas">
       <img  src="{{carta.imagen}}" (click)="goToCarta(carta,this.lista)">
       <div class="card-title">{{ carta.title }}</div>
-      <!--<div class="card-subtitle">41 Listings</div>-->
+      
     </ion-card>
     
-</ion-content>
+  </ion-content>
+
+-->
+
+  <!--<ion-item><ion-input>hola</ion-input></ion-item>
+  <ion-item><button ion-button block (click)="btnAddClicked()">Enviar</button></ion-item> 
+
+<ion-list>
+  <ion-item *ngFor="let item of arrData; let i=index" (click)="delete(i)">
+    {{item.$value}}
+  </ion-item>
+</ion-list>-->
